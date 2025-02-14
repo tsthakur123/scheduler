@@ -18,7 +18,6 @@ const LoginPage = () => {
     try {
       const response = await axios.post('https://scheduler-backend-z614.onrender.com/api/auth/login', { email, password });
       login(response.data.token); // Use login from AuthContext
-      router.push('/interview'); // Redirect to the interview page after login
     } catch (error) {
       const err = error as { response?: { data?: { message?: string } } };
       setError(err.response?.data?.message || 'Invalid credentials. Please try again.');
