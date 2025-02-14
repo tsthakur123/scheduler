@@ -63,7 +63,7 @@ const LoginPage = () => {
           </Grid>
           <Grid item xs={12}>
             <Button variant="text" onClick={() => router.push('/register')} fullWidth>
-              Don't have an account? Register
+            Don&apos;t have an account? Register
             </Button>
           </Grid>
         </Grid>
