@@ -27,7 +27,7 @@ const RegisterPage = () => {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:5000/api/auth/register', formData); // Register the user using the API call
+      await axios.post('https://scheduler-backend-z614.onrender.com/api/auth/register', formData); // Register the user using the API call
       router.push("/login"); // Redirect to login after successful registration
     } catch (err: unknown) {
       if (axios.isAxiosError(err)) {

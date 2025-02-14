@@ -14,7 +14,7 @@ const LoginPage = () => {
     e.preventDefault();
     
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login', { email, password });
+      const response = await axios.post('https://scheduler-backend-z614.onrender.com/api/auth/login', { email, password });
       localStorage.setItem('token', response.data.token); // Save token
       router.push('/interview'); // Redirect to the interview page after login
     } catch (error) {

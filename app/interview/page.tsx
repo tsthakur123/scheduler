@@ -28,7 +28,7 @@ const InterviewPage = () => {
   useEffect(() => {
     const fetchInterviews = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/interviews/get', {
+        const response = await axios.get('https://scheduler-backend-z614.onrender.com/api/interviews/get', {
           headers: {
             Authorization: `Bearer ${user?.token}`,
             'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const InterviewPage = () => {
   // Create interview
   const handleCreateInterview = async (data: Omit<Interview, '_id'>) => {
     try {
-      const response = await axios.post('http://localhost:5000/api/interviews/create', data, {
+      const response = await axios.post('https://scheduler-backend-z614.onrender.com/api/interviews/create', data, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
           'Content-Type': 'application/json',
@@ -73,7 +73,7 @@ const InterviewPage = () => {
     if (!editingInterview) return;
 
     try {
-      const response = await axios.put(`http://localhost:5000/api/interviews/update/${editingInterview._id}`, data, {
+      const response = await axios.put(`https://scheduler-backend-z614.onrender.com/api/interviews/update/${editingInterview._id}`, data, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
           'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ const InterviewPage = () => {
   // Delete interview
   const handleDeleteInterview = async (id: string) => {
     try {
-      await axios.delete(`http://localhost:5000/api/interviews/delete/${id}`, {
+      await axios.delete(`https://scheduler-backend-z614.onrender.com/api/interviews/delete/${id}`, {
         headers: {
           Authorization: `Bearer ${user?.token}`,
           'Content-Type': 'application/json',
