@@ -1,26 +1,30 @@
 "use client"
 import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { useAuth } from '@/contexts/AuthContext';
 import { useRouter } from 'next/navigation';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
-  const router = useRouter();
 
-  const handleLogout = () => {
-    // Handle logout by clearing token
-    localStorage.removeItem('token');
-    router.push('/login');
-  };
+const Layout = ({ children }: { children: React.ReactNode }) => {
+  const { token, logout } = useAuth(); // Get token and logout function from AuthContext
+  const router = useRouter()
+
 
   return (
     <>
-      <AppBar position="static">
+        <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             Interview Scheduler
           </Typography>
-          <Button color="inherit" onClick={handleLogout}>
-            Logout
-          </Button>
+          {token ? ( // Check if token exists
+            <Button color="inherit" onClick={logout}>
+              Logout
+            </Button>
+          ) : (
+            <Button color="inherit" onClick={() => router.push('/login')}>
+              Login
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
       <main>{children}</main>
