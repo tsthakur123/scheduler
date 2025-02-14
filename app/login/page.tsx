@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { TextField, Button, Grid, Typography, Box } from '@mui/material';
 import axios from '@/utils/axios';
-import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 
 const LoginPage = () => {
@@ -10,7 +9,6 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const { login } = useAuth(); // Get login function from AuthContext
-  const router = useRouter();
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
